@@ -87,16 +87,31 @@ Optional:
 ### Models
 #### Post
 
-   | Property      | Type     | Description |
-   | ------------- | -------- | ------------|
-   | objectId      | String   | unique id for the user post (default field) |
-   | author        | Pointer to User| image author |
-   | image         | File     | image that user posts |
-   | caption       | String   | image caption by author |
-   | commentsCount | Number   | number of comments that has been posted to an image |
-   | likesCount    | Number   | number of likes for the post |
-   | createdAt     | DateTime | date when post is created (default field) |
-   | updatedAt     | DateTime | date when post is last updated (default field) |
+   | Property      | Type             | Description |
+   | ------------- | --------         | ------------|
+   | objectId      | String           | unique id for the user post (default field) |
+   | author        | Pointer to User  | image author |
+   | image         | File             | image that user posts |
+   | caption       | String           | image caption by author |
+   | commentsCount | Number           | number of comments that has been posted to an image |
+   | likesCount    | Number           | number of likes for the post |
+   | createdAt     | DateTime         | date when post is created (default field) |
+   
+#### User
+
+   | Property      | Type             | Description |
+   | ------------- | --------         | ------------|
+   | userId        | String           | unique id for the user (default field) |
+   | username      | String           | unique username (@) |
+   | password      | String           | password |
+   | name          | String           | user's name |
+   | school        | String           | user's school |
+   | orgName       | String           | user's organization name |
+   | profilePic    | File             | User's profile picture |
+   | orgPic        | File             | User's organization picture |
+   | position      | String           | Position in org |
+   | joinedAt      | Date             | date when post is created (default field) |
+
 ### Networking
 #### List of network requests by screen
    - Home Feed Screen
