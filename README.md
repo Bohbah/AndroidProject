@@ -8,7 +8,7 @@
 
 ## Overview
 ### Description
-Allows members of Greek organizations on college campuses to more easily communicate and plan events with other chapters via chat and calendar features. 
+Allows members of Greek organizations on college campuses to easily communicate and plan events with other chapters via chat and calendar features. 
 
 ### App Evaluation
 - **Category:** Social Networking
