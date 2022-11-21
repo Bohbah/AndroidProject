@@ -23,7 +23,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 
 **Required Must-have Stories**
 
-* Users can make and login to an account
+* Users can make a new account and login to an existing account
 * Users can edit their profile page
 * User can view another user's profile page containing their previous posts and events
 * Users can create calendar events and view calendar of community events
