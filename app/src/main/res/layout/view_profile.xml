@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvPositionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Director of XYZ"
+        app:layout_constraintStart_toEndOf="@+id/tvViewJoined"
+        app:layout_constraintTop_toBottomOf="@+id/tvSemester" />
+
+    <TextView
+        android:id="@+id/tvViewPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Position:  "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewJoined" />
+
+    <ImageView
+        android:id="@+id/profileImage2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="user profile picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit"
+        app:srcCompat="@android:drawable/presence_invisible" />
+
+    <ImageView
+        android:id="@+id/organizationImage2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="Greek organization image image"
+        app:layout_constraintStart_toEndOf="@+id/profileImage2"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit"
+        app:srcCompat="@android:drawable/presence_online" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Last"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage2" />
+
+    <TextView
+        android:id="@+id/tvViewOrganization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Greek Organization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewName" />
+
+    <TextView
+        android:id="@+id/tvViewJoined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Joined:  "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewOrganization" />
+
+    <TextView
+        android:id="@+id/tvSemester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Spring/Fall 20XX"
+        app:layout_constraintStart_toEndOf="@+id/tvViewJoined"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewOrganization" />
+
+    <TextView
+        android:id="@+id/tvRecentPosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Recent Posts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewPosition" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecentPosts"
+        android:layout_width="409dp"
+        android:layout_height="374dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecentPosts" />
+</androidx.constraintlayout.widget.ConstraintLayout>
