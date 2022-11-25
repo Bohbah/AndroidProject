@@ -2,4 +2,9 @@
     <string name="app_name">Grapevine</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <string name="back4app_app_id">zaB7LXwtr8eYkPCMGz8laAg5dnjYJmxEkg1vWg19</string>
+    <string name="back4app_client_key">Ps8XEC6WbEveLvJ2HxhAzcWeZUgRDFFk9wQ7RRmd</string>
+
 </resources>
