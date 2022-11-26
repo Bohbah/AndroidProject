@@ -40,6 +40,30 @@ Allows members of Greek organizations on college campuses to easily communicate 
 * Users can like other individual posts
 * Users can view other campus calendars and users
 
+**Sprint 1/4
+
+- [X] Create Account FE
+- [X] Edit user profile FE
+- [X] Chatlist FE
+- [X] Calendar View FE
+- [X] Viewing Profile FE
+- [ ] Feed FE
+- [ ] View Post FE
+
+**Sprint 2/4
+- [ ] Feed FE
+- [ ] View Post FE
+- [ ] Create Server
+- [ ] Log In Functionality
+- [ ] Creating Event Functionality
+- [ ] Viewing events on calendar Functionality
+- [ ] Viewing events on feed functionality
+- [ ] Loading user profiles
+- [ ] Loading current logged in profile
+
+**NOTE
+Many of these front end changes are not noticable through the demo due to the fact that the backend has not been implemented yet.
+
 ### 2. Screen Archetypes
 
 * Login - allows user signs into their account
