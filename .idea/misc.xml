@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/edit_profile.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/fragment_calendar.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/fragment_chat.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/fragment_compose.xml" value="0.358695652173913" />
@@ -13,10 +14,6 @@
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/login_account.xml" value="0.1" />
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/layout/view_profile.xml" value="0.1" />
         <entry key="..\:/Users/Tyler/AndroidStudioProjects/AndroidProject/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.3" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.18614130434782608" />
-        <entry key="app/src/main/res/layout/edit_profile.xml" value="0.1078125" />
-        <entry key="app/src/main/res/layout/login_account.xml" value="0.32989044189453126" />
-        <entry key="app/src/main/res/layout/view_profile.xml" value="0.35827331542968754" />
       </map>
     </option>
   </component>
