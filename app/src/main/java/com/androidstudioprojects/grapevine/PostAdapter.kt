@@ -27,7 +27,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivPFP: ImageView
+        val ivPFP: de.hdodenhof.circleimageview.CircleImageView
         //TODO Org
         val tvUsername: TextView
         val tvDescription: TextView
@@ -44,7 +44,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             tvUsername.text = post.getUser()?.username
 
             Glide.with(itemView.context)
-                .load(post.getPFP())
+                .load(post.getUser()?.get("pfp"))
                 .into(ivPFP)
         }
     }

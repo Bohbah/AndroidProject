@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
         query.findInBackground(object : FindCallback<Post> {
             override fun done(posts: MutableList<Post>?, e: ParseException?) {
                 if(e != null) {
-                    Log.e(TAG, "Error fetching posts")
+                    Log.e(TAG, "Error fetching posts: " + e.message)
                 } else {
                     if(posts != null) {
                         for (post in posts) {
