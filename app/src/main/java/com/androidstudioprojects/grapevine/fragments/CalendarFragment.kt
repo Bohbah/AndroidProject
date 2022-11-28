@@ -8,11 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstudioprojects.grapevine.*
+import com.androidstudioprojects.grapevine.Event
+import com.androidstudioprojects.grapevine.EventAdapter
+import com.androidstudioprojects.grapevine.R
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
-
 
 class CalendarFragment : Fragment() {
 
@@ -42,19 +43,19 @@ class CalendarFragment : Fragment() {
 
         queryEvents()
     }
-    fun queryEvents() {
+
+    open fun queryEvents() {
         val query: ParseQuery<Event> = ParseQuery.getQuery(Event::class.java)
         query.include(Event.KEY_USER)
         query.findInBackground(object : FindCallback<Event> {
             override fun done(events: MutableList<Event>?, e: ParseException?) {
                 if(e != null) {
-                    Log.e(HomeFragment.TAG, "Error fetching events: " + e.message)
+                    Log.e(TAG, "Error fetching events: " + e.message)
                 } else {
                     if(events != null) {
                         for (event in events) {
                             Log.i(
-                                HomeFragment.TAG, "EVENTS: " + event.getDescription() + " , username: " +
-                                        event.getUser()?.username)
+                                TAG, "EVENTS: " + event.getDescription() + " , title: " + event.getTitle())
                         }
 
                         allEvents.addAll(events)
