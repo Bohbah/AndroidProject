@@ -1,13 +1,25 @@
 package com.androidstudioprojects.grapevine.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.androidstudioprojects.grapevine.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.androidstudioprojects.grapevine.*
+import com.parse.FindCallback
+import com.parse.ParseException
+import com.parse.ParseQuery
+
 
 class CalendarFragment : Fragment() {
+
+    lateinit var postsRecyclerView: RecyclerView
+    lateinit var adapter: EventAdapter
+
+    var allEvents: MutableList<Event> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,5 +32,39 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
+
+        postsRecyclerView = view.findViewById(R.id.rvCalEvents)
+
+        adapter = EventAdapter(requireContext(), allEvents)
+        postsRecyclerView.adapter = adapter
+
+        postsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        queryEvents()
+    }
+    fun queryEvents() {
+        val query: ParseQuery<Event> = ParseQuery.getQuery(Event::class.java)
+        query.include(Event.KEY_USER)
+        query.findInBackground(object : FindCallback<Event> {
+            override fun done(events: MutableList<Event>?, e: ParseException?) {
+                if(e != null) {
+                    Log.e(HomeFragment.TAG, "Error fetching events: " + e.message)
+                } else {
+                    if(events != null) {
+                        for (event in events) {
+                            Log.i(
+                                HomeFragment.TAG, "EVENTS: " + event.getDescription() + " , username: " +
+                                        event.getUser()?.username)
+                        }
+
+                        allEvents.addAll(events)
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
+    }
+    companion object {
+        const val TAG = "CALENDAR FRAG"
     }
 }
