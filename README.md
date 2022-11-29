@@ -51,18 +51,27 @@ Allows members of Greek organizations on college campuses to easily communicate 
 - [ ] View Post FE
 
 **Sprint 2/4
-- [ ] Feed FE
-- [ ] View Post FE
-- [ ] Create Server
-- [ ] Log In Functionality
+- [x] Feed FE
+- [x] View Post FE
+- [x] Create Server
+- [x] Log In Functionality
 - [ ] Creating Event Functionality
 - [ ] Viewing events on calendar Functionality
-- [ ] Viewing events on feed functionality
+- [x] Viewing events on feed functionality
 - [ ] Loading user profiles
-- [ ] Loading current logged in profile
+- [x] Loading current logged in profile
+
+**Sprint 3/4
+- [ ] Creating Event Functionality
+- [ ] Creating Post Functionality
+- [ ] Viewing events on calendar Functionality
+- [ ] Loading user profiles
+- [ ] Chat Functionality
+- [ ] Settings
+
 
 **NOTE
-Many of these front end changes are not noticable through the demo due to the fact that the backend has not been implemented yet.
+
 
 ### 2. Screen Archetypes
 
