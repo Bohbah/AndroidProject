@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ComposeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="compose" />
+    <EditText
+        android:id="@+id/et_NameOfEvent"
+        android:layout_width="307dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="80dp"
+        android:width="200dp"
+        android:hint="Event Name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isEventSwitch"
+        tools:ignore="MissingConstraints" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/et_EventLocation"
+        android:layout_width="307dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="8dp"
+        android:width="200dp"
+        android:hint="Event Location"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_EventDescription"
+        tools:ignore="MissingConstraints" />
+
+    <DatePicker
+        android:id="@+id/Create_EventDate"
+        android:layout_width="413dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="16dp"
+        android:datePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/et_EventLocation"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-5dp" />
+
+    <Button
+        android:id="@+id/btn_Submit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Create_EventDate" />
+
+    <EditText
+        android:id="@+id/et_EventDescription"
+        android:layout_width="307dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="16dp"
+        android:width="200dp"
+        android:hint="Event Description"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_NameOfEvent"
+        tools:ignore="MissingConstraints" />
+
+
+    <Switch
+        android:id="@+id/isEventSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Is this an event?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_Note"
+        android:layout_width="293dp"
+        android:layout_height="35dp"
+        android:text="Note: if this is not an event you will simply be making a post with the description"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="98dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
