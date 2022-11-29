@@ -61,6 +61,9 @@ Allows members of Greek organizations on college campuses to easily communicate 
 - [ ] Loading user profiles
 - [x] Loading current logged in profile
 
+<img src="https://media1.giphy.com/media/1QPe3bja6fMmMVBVhm/giphy.gif?cid=790b76114957709da286b172d00f67b47a9ca9f4c0b14f5e&rid=giphy.gif&ct=g" width=250><br>
+
+
 **Sprint 3/4
 - [ ] Creating Event Functionality
 - [ ] Creating Post Functionality
