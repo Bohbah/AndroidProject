@@ -1,12 +1,18 @@
 package com.androidstudioprojects.grapevine
 
 import com.parse.*
+import org.parceler.Parcel
 
 
 // Description : String
 // User : User
+@Parcel
 @ParseClassName("Post")
-class Post : ParseObject() {
+
+public class Post : ParseObject() {
+
+    //added for Parcelable
+    public class Post(){}
 
     // getters and setters
     fun getDescription(): String? {
