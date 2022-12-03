@@ -16,6 +16,13 @@ class Post : ParseObject() {
         put(KEY_DESCRIPTION, description)
     }
 
+    fun getEvent(): Boolean? {
+        return getBoolean(KEY_EVENT)
+    }
+    fun setEvent(isEvent: Boolean) {
+        put(KEY_EVENT, isEvent)
+    }
+
     fun getUser(): ParseUser? {
         return getParseUser(KEY_USER)
     }
@@ -26,7 +33,7 @@ class Post : ParseObject() {
     // Keys
     companion object {
         const val KEY_DESCRIPTION = "Description"
-        const val KEY_PFP = "pfp"
+        const val KEY_EVENT = "isEvent"
         const val KEY_USER = "User"
     }
 }
