@@ -1,12 +1,18 @@
 package com.androidstudioprojects.grapevine
 
 import com.parse.*
+import org.parceler.Parcel
 
 
 // Description : String
 // User : User
+@Parcel
 @ParseClassName("Post")
-class Post : ParseObject() {
+
+public class Post : ParseObject() {
+
+    //added for Parcelable
+    public class Post(){}
 
     // getters and setters
     fun getDescription(): String? {
@@ -14,6 +20,13 @@ class Post : ParseObject() {
     }
     fun setDescription(description: String) {
         put(KEY_DESCRIPTION, description)
+    }
+
+    fun getEvent(): Boolean? {
+        return getBoolean(KEY_EVENT)
+    }
+    fun setEvent(isEvent: Boolean) {
+        put(KEY_EVENT, isEvent)
     }
 
     fun getUser(): ParseUser? {
@@ -26,7 +39,7 @@ class Post : ParseObject() {
     // Keys
     companion object {
         const val KEY_DESCRIPTION = "Description"
-        const val KEY_PFP = "pfp"
+        const val KEY_EVENT = "isEvent"
         const val KEY_USER = "User"
     }
 }
