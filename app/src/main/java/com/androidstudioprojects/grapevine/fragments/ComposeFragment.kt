@@ -45,7 +45,7 @@ class ComposeFragment : Fragment() {
         post.setDescription(description)
         post.setUser(user)
         post.setLocation(location)
-        //post.setDateTime(DateTime)
+        post.setDateTime(DateTime)
         post.setName(Name)
         post.setEvent(isEvent)
         post.saveInBackground{ exc->
