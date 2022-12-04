@@ -33,7 +33,7 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
-
+        
         eventsRecyclerView = view.findViewById(R.id.rvEventFeed)
 
         adapter = PostAdapter(requireContext(), allEvents)
@@ -66,7 +66,6 @@ class CalendarFragment : Fragment() {
             }
         })
     }
-
     companion object {
         const val TAG = "CalendarFragment"
     }
