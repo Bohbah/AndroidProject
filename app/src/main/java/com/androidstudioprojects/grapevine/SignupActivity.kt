@@ -1,12 +1,14 @@
 package com.androidstudioprojects.grapevine
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.androidstudioprojects.grapevine.fragments.ProfileFragment
+import com.parse.ParseException
 import com.parse.ParseUser
 
 class SignupActivity : AppCompatActivity() {
@@ -22,8 +24,37 @@ class SignupActivity : AppCompatActivity() {
             val position = findViewById<EditText>(R.id.tiPosition).text.toString()
             val username = findViewById<EditText>(R.id.tiUsername).text.toString()
             val password = findViewById<EditText>(R.id.tiPassword).text.toString()
-            signupUser(name, school, org, joined, position, username, password)
+            val currentUser = ParseUser.getCurrentUser()
+            if (currentUser != null) {
+                updateUser(name, school, org, joined, position, username, password)
+            }else{
+                signupUser(name, school, org, joined, position, username, password)
+            }
         }
+    }
+
+    fun updateUser(name: String, school: String, org: String, joined: String, position: String, username: String, password: String) {
+            val currentUser = ParseUser.getCurrentUser()
+            // Other attributes than "email" will remain unchanged!
+            currentUser.put("name", name)
+            currentUser.put("school", school)
+            currentUser.put("org", org)
+            currentUser.put("joined", joined)
+            currentUser.put("role", position)
+            currentUser.setUsername(username)
+            currentUser.setPassword(password)
+            // Saves the object.
+            currentUser.saveInBackground { e: ParseException? ->
+                if (e == null) {
+                    //Save successful
+                    Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()
+                    goToMainActivity()
+                } else {
+                    // Something went wrong while saving
+                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
     }
 
     private fun signupUser(name: String, school: String, org: String, joined: String, position: String, username: String, password: String) {

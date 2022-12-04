@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstudioprojects.grapevine.Event
-import com.androidstudioprojects.grapevine.EventAdapter
+import com.androidstudioprojects.grapevine.Post
+import com.androidstudioprojects.grapevine.PostAdapter
 import com.androidstudioprojects.grapevine.R
 import com.parse.FindCallback
 import com.parse.ParseException
@@ -17,10 +17,10 @@ import com.parse.ParseQuery
 
 class CalendarFragment : Fragment() {
 
-    lateinit var postsRecyclerView: RecyclerView
-    lateinit var adapter: EventAdapter
+    lateinit var eventsRecyclerView: RecyclerView
+    lateinit var adapter: PostAdapter
 
-    var allEvents: MutableList<Event> = mutableListOf()
+    var allEvents: MutableList<Post> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,32 +33,33 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
+        
+        eventsRecyclerView = view.findViewById(R.id.rvEventFeed)
 
-        postsRecyclerView = view.findViewById(R.id.rvCalEvents)
+        adapter = PostAdapter(requireContext(), allEvents)
+        eventsRecyclerView.adapter = adapter
 
-        adapter = EventAdapter(requireContext(), allEvents)
-        postsRecyclerView.adapter = adapter
+        eventsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        postsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        queryEvents()
+        queryPosts()
     }
 
-    open fun queryEvents() {
-        val query: ParseQuery<Event> = ParseQuery.getQuery(Event::class.java)
-        query.include(Event.KEY_USER)
-        query.findInBackground(object : FindCallback<Event> {
-            override fun done(events: MutableList<Event>?, e: ParseException?) {
+    open fun queryPosts() {
+        val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
+        query.include(Post.KEY_USER)
+        query.whereEqualTo(Post.KEY_EVENT, true)
+        query.findInBackground(object : FindCallback<Post> {
+            override fun done(posts: MutableList<Post>?, e: ParseException?) {
                 if(e != null) {
-                    Log.e(TAG, "Error fetching events: " + e.message)
+                    Log.e(TAG, "Error fetching posts: " + e.message)
                 } else {
-                    if(events != null) {
-                        for (event in events) {
-                            Log.i(
-                                TAG, "EVENTS: " + event.getDescription() + " , title: " + event.getTitle())
+                    if(posts != null) {
+                        for (post in posts) {
+                            Log.i(TAG, "Post: " + post.getDescription() + " , username: " +
+                                    post.getUser()?.username)
                         }
 
-                        allEvents.addAll(events)
+                        allEvents.addAll(posts)
                         adapter.notifyDataSetChanged()
                     }
                 }
@@ -66,6 +67,6 @@ class CalendarFragment : Fragment() {
         })
     }
     companion object {
-        const val TAG = "CALENDAR FRAG"
+        const val TAG = "CalendarFragment"
     }
 }

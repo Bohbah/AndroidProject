@@ -15,7 +15,7 @@ import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
 
-class HomeFragment : Fragment() {
+open class HomeFragment : Fragment() {
 
     lateinit var postsRecyclerView: RecyclerView
     lateinit var adapter: PostAdapter
@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
         queryPosts()
     }
 
-    fun queryPosts() {
+    open fun queryPosts() {
         val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
         query.include(Post.KEY_USER)
         query.findInBackground(object : FindCallback<Post> {
