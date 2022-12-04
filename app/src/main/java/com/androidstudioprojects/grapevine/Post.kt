@@ -1,11 +1,15 @@
 package com.androidstudioprojects.grapevine
 
+import android.annotation.SuppressLint
 import android.util.Log
 import com.parse.ParseClassName
 import com.parse.ParseFile
 import com.parse.ParseObject
 import com.parse.ParseUser
 import java.io.File
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZonedDateTime
 import java.util.*
 
 
@@ -42,6 +46,10 @@ class Post : ParseObject() {
     fun getDateTime(): Date? {
         Log.i("ROB", "Date is ${getDate(KEY_CREATEDAT)}")
         return getDate(KEY_DATE_TIME)
+    }
+    @SuppressLint("NewApi")
+    fun setDateTime(dateString: String){
+        put(KEY_DATE_TIME, LocalDateTime.parse(dateString))
     }
 
     fun getLocation():String?{

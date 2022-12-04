@@ -10,7 +10,7 @@
         android:id="@+id/et_NameOfEvent"
         android:layout_width="307dp"
         android:layout_height="81dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="44dp"
         android:width="200dp"
         android:hint="Event Name"
         android:textSize="16sp"
@@ -34,22 +34,43 @@
 
     <DatePicker
         android:id="@+id/Create_EventDate"
-        android:layout_width="413dp"
-        android:layout_height="159dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="311dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="4dp"
+        android:calendarViewShown="false"
         android:datePickerMode="spinner"
         app:layout_constraintTop_toBottomOf="@+id/et_EventLocation"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-5dp" />
+        tools:layout_editor_absoluteX="51dp" />
+
+    <TimePicker
+        android:id="@+id/Create_EventTime"
+        android:layout_width="311dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="84dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/et_EventLocation"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="52dp" />
+
+    <TimePicker
+        android:id="@+id/Create_EventTime"
+        android:layout_width="311dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="84dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/et_EventLocation"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="52dp" />
+
 
     <Button
         android:id="@+id/btn_Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="88dp"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Create_EventDate" />
 
@@ -57,7 +78,7 @@
         android:id="@+id/et_EventDescription"
         android:layout_width="307dp"
         android:layout_height="81dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:width="200dp"
         android:hint="Event Description"
         android:textSize="16sp"
@@ -66,12 +87,11 @@
         app:layout_constraintTop_toBottomOf="@+id/et_NameOfEvent"
         tools:ignore="MissingConstraints" />
 
-
     <Switch
         android:id="@+id/isEventSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="Is this an event?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,9 +103,9 @@
         android:layout_width="293dp"
         android:layout_height="35dp"
         android:text="Note: if this is not an event you will simply be making a post with the description"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="98dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="43dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
