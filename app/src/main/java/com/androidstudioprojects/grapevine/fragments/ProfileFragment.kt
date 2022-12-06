@@ -20,11 +20,11 @@ import com.parse.ParseException
 import com.parse.ParseQuery
 import com.parse.ParseUser
 
+
 class ProfileFragment : Fragment() {
 
     lateinit var postsRecyclerView: RecyclerView
     lateinit var adapter: PostAdapter
-
     var allPosts: MutableList<Post> = mutableListOf()
 
     override fun onCreateView(
