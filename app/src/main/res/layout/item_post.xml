@@ -9,8 +9,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivPFP"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/ivOrg"
         android:layout_width="37dp"
         android:layout_height="42dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/ivPFP"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,5 +50,14 @@
         app:layout_constraintStart_toEndOf="@+id/ivOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvUsername"
         tools:text="aaaaaaaaaaaaaaa" />
+
+    <ImageButton
+        android:id="@+id/ibLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+        app:srcCompat="@drawable/ic_outline_thumb_up_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

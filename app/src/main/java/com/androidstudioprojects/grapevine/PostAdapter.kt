@@ -6,6 +6,7 @@ import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +36,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
         val ivPFP: de.hdodenhof.circleimageview.CircleImageView
         //TODO Org
         val tvUsername: TextView
+        val ibLike: ImageButton
         val tvDescription: TextView
 
         init {
@@ -42,6 +44,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             //TODO Org
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
+            ibLike = itemView.findViewById(R.id.ibLike)
             itemView.setOnClickListener(this)
         }
 
