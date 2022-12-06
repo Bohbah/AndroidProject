@@ -1,15 +1,11 @@
 package com.androidstudioprojects.grapevine
 
 import android.content.Context
-import android.content.Intent
-import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstudioprojects.grapevine.fragments.ProfileFragment
 import com.bumptech.glide.Glide
 
 
@@ -30,7 +26,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
         return posts.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivPFP: de.hdodenhof.circleimageview.CircleImageView
         //TODO Org
         val tvUsername: TextView
@@ -41,7 +37,6 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             //TODO Org
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
-            itemView.setOnClickListener(this)
         }
 
         fun bind(post: Post) {
@@ -53,13 +48,6 @@ class PostAdapter(val context: Context, val posts: List<Post>)
                 .into(ivPFP)
         }
 
-        override fun onClick(p0: View?) {
-                val post = posts[adapterPosition]
-                Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
-                //val intent = Intent(context, ProfileFragment::class.java)
-                //intent.putExtra("username", tvUsername)
-                //context.startActivity(intent)
 
-        }
     }
 }
