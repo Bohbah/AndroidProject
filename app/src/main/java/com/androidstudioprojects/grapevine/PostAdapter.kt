@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.androidstudioprojects.grapevine.fragments.ProfileFragment
 import com.bumptech.glide.Glide
-import org.parceler.Parcels
 
 
 class PostAdapter(val context: Context, val posts: List<Post>)

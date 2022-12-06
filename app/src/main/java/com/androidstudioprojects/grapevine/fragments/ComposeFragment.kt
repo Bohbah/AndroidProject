@@ -13,7 +13,11 @@ import androidx.fragment.app.Fragment
 import com.androidstudioprojects.grapevine.Post
 import com.androidstudioprojects.grapevine.R
 import com.parse.ParseUser
-import java.time.LocalDate
+import java.lang.String.format
+import java.util.*
+import java.text.SimpleDateFormat
+import java.text.Format
+
 
 class ComposeFragment : Fragment() {
     override fun onCreateView(
@@ -30,44 +34,43 @@ class ComposeFragment : Fragment() {
         // Set onClickListeners and logic
         //Need to be able to make posts and retrieve posts
         view.findViewById<Button>(R.id.btn_Submit).setOnClickListener{
+            //variables
             val user = ParseUser.getCurrentUser()
             val name = view.findViewById<EditText>(R.id.et_NameOfEvent).text.toString()
             val description = view.findViewById<EditText>(R.id.et_EventDescription).text.toString()
             val location = view.findViewById<EditText>(R.id.et_EventLocation).text.toString()
             val isEvent = view.findViewById<Switch>(R.id.isEventSwitch).isChecked
-            var day = view.findViewById<DatePicker>(R.id.Create_EventDate).dayOfMonth.toString()
-            var month = view.findViewById<DatePicker>(R.id.Create_EventDate).month.toString()
-            var year = view.findViewById<DatePicker>(R.id.Create_EventDate).year.toString()
-            //Log.i("ROB", "day: $day month: $month year: $year")
-            var hour = view.findViewById<TimePicker>(R.id.Create_EventTime).hour.toString()
-            var minute = view.findViewById<TimePicker>(R.id.Create_EventTime).minute.toString()
-            if (day < 10.toString()){
-                day = "0$day"
-            }
-            if (month < 10.toString()){
-                month = "0$month"
-            }
-            if (hour < 10.toString()){
-                hour = "0$hour"
-            }
-            if (minute < 10.toString()){
-                minute = "0$minute"
-            }
-            val dateString = "$year-$month-$day"+"T"+"$hour:$minute:00.00"
-            //Log.i("ROB", "hour: $hour minute: $minute")
-            Log.i("ROB", dateString)
+            //date
+            val day = view.findViewById<DatePicker>(R.id.Create_EventDate).dayOfMonth
+            val month = view.findViewById<DatePicker>(R.id.Create_EventDate).month
+            val year = view.findViewById<DatePicker>(R.id.Create_EventDate).year
+            //time
+            val hour = view.findViewById<TimePicker>(R.id.Create_EventTime).hour
+            val minute = view.findViewById<TimePicker>(R.id.Create_EventTime).minute
+            //calendar
+            val calendar = Calendar.getInstance()
+            calendar.set(year, month, day, hour, minute, 0)
+            val tv = calendar.timeInMillis
 
-            submitPost(description, user, location, dateString, name, isEvent)
+            Log.i("ROB", "Time in milis: $tv")
+            val longArray = LongArray(6) { it.toLong() }
+            longArray[0] = day.toLong()
+            longArray[1] = month.toLong()
+            longArray[2] = year.toLong()
+            longArray[3] = hour.toLong()
+            longArray[4] = minute.toLong()
+            longArray[5] = tv
+            submitPost(description, user, location,name, longArray, isEvent)
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    fun submitPost(description: String, user:ParseUser, location: String, dateString: String, Name: String, isEvent: Boolean){
+    fun submitPost(description: String, user:ParseUser, location: String, Name: String, timeVal: LongArray, isEvent: Boolean){
         val post = Post()
         post.setDescription(description)
         post.setUser(user)
         post.setLocation(location)
-        //post.setDateTime(dateString)
         post.setName(Name)
+        post.setDateTime(timeVal)
         post.setEvent(isEvent)
         post.saveInBackground{ exc->
             if (exc != null){
