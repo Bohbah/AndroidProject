@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.androidstudioprojects.grapevine.Message
 import com.androidstudioprojects.grapevine.R
 import com.parse.ParseException
 import com.parse.ParseObject
@@ -28,6 +29,7 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
+        ParseObject.registerSubclass(Message::class.java)
         val USER_SEND_ID_KEY = "sender"
         val BODY_KEY = "content"
         // Find the text field and button
@@ -36,9 +38,9 @@ class ChatFragment : Fragment() {
 
         ibSend.setOnClickListener {
             val data: String = etMessage.text.toString()
-            val message = ParseObject.create("message")
-            message.put(USER_SEND_ID_KEY, ParseUser.getCurrentUser())
-            message.put(BODY_KEY, data)
+            val message = Message()
+            message.setSendUser(ParseUser.getCurrentUser())
+            message.setContent(data)
             message.saveInBackground(object : SaveCallback {
                 override fun done(e: ParseException?) {
                     if (e == null) {
