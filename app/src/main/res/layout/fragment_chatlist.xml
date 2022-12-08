@@ -5,63 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/userImageChatlist"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:contentDescription="user profile picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="358dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Send Anything"
+        android:imeOptions="actionSend"
+        android:inputType="textShortMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibSend"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/presence_invisible"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintTop_toBottomOf="@+id/rvChat" />
 
-    <TextView
-        android:id="@+id/ViewOrganizationChatList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Greek Organization"
-        app:layout_constraintBottom_toTopOf="@+id/userImageChatlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewNameChatList"
-        app:layout_constraintVertical_bias="0.176" />
-
-    <TextView
-        android:id="@+id/ViewNameChatList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="User Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/userImageChatlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/userOrgImageChatlist"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:contentDescription="Greek organization image image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
-        app:layout_constraintStart_toEndOf="@+id/userImageChatlist"
-        app:srcCompat="@android:drawable/presence_online"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="78dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatList"
-        android:layout_width="409dp"
-        android:layout_height="374dp"
+    <ImageButton
+        android:id="@+id/ibSend"
+        android:layout_width="40dp"
+        android:layout_height="43dp"
+        android:layout_alignParentRight="true"
+        android:contentDescription="SEND"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etMessage"
+        app:layout_constraintTop_toTopOf="@+id/etMessage"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImageChatlist"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
