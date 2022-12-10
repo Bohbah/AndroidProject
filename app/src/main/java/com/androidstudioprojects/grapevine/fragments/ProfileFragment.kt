@@ -112,6 +112,8 @@ class ProfileFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                val btnEdit = view.findViewById<Button>(R.id.btnEdit)
+                btnEdit.visibility = View.INVISIBLE
                 return false
             }
         })
