@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -27,14 +28,14 @@ class PostAdapter(val context: Context, val posts: List<Post>)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivPFP: de.hdodenhof.circleimageview.CircleImageView
-        //TODO Org
+        val ivPFP: ImageView
+        val ivOrg: ImageView
         val tvUsername: TextView
         val tvDescription: TextView
 
         init {
             ivPFP = itemView.findViewById(R.id.ivPFP)
-            //TODO Org
+            ivOrg = itemView.findViewById(R.id.ivOrg)
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
         }
@@ -44,10 +45,13 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             tvUsername.text = post.getUser()?.username
 
             Glide.with(itemView.context)
-                .load(post.getUser()?.get("pfp"))
+                .load(post.getUser()?.getParseFile("pfp")?.url)
+                .circleCrop()
                 .into(ivPFP)
+            Glide.with(itemView.context)
+                .load(post.getUser()?.getParseFile("orgPic")?.url)
+                .circleCrop()
+                .into(ivOrg)
         }
-
-
     }
 }
