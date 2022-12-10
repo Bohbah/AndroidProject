@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -17,10 +18,8 @@ import com.androidstudioprojects.grapevine.Post
 import com.androidstudioprojects.grapevine.PostAdapter
 import com.androidstudioprojects.grapevine.R
 import com.androidstudioprojects.grapevine.SignupActivity
-import com.parse.FindCallback
-import com.parse.ParseException
-import com.parse.ParseQuery
-import com.parse.ParseUser
+import com.bumptech.glide.Glide
+import com.parse.*
 
 
 class ProfileFragment : Fragment() {
@@ -55,7 +54,7 @@ class ProfileFragment : Fragment() {
                             Toast.makeText(context, "No users by that username found.", Toast.LENGTH_SHORT).show()
                         }
                         for (user1 in users) {
-                            Toast.makeText(context, user1.toString(), Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(context, user1.toString(), Toast.LENGTH_SHORT).show()
                             val user = user1
                             val NameView= view.findViewById<TextView>(R.id.tvViewName)
                             NameView.text = user.get("name").toString()
@@ -65,6 +64,16 @@ class ProfileFragment : Fragment() {
                             JoinedView.text = user.get("joined").toString()
                             val PositionView = view.findViewById<TextView>(R.id.tvPositionName)
                             PositionView.text = user.get("role").toString()
+                            val profilePic = view.findViewById<ImageView>(R.id.ivProfileImage)
+                            val orgPic = view.findViewById<ImageView>(R.id.ivOrgImage)
+                            Glide.with(view.context)
+                                .load(user.getParseFile("pfp")?.url)
+                                .circleCrop()
+                                .into(profilePic)
+                            Glide.with(view.context)
+                                .load(user.getParseFile("orgPic")?.url)
+                                .circleCrop()
+                                .into(orgPic)
 
                             // See Recent Posts
                             postsRecyclerView = view.findViewById(R.id.rvRecentPosts)
@@ -122,6 +131,16 @@ class ProfileFragment : Fragment() {
         JoinedView.text = user.get("joined").toString()
         val PositionView = view.findViewById<TextView>(R.id.tvPositionName)
         PositionView.text = user.get("role").toString()
+        val profilePic = view.findViewById<ImageView>(R.id.ivProfileImage)
+        val orgPic = view.findViewById<ImageView>(R.id.ivOrgImage)
+        Glide.with(view.context)
+            .load(user.getParseFile("pfp")?.url)
+            .circleCrop()
+            .into(profilePic)
+        Glide.with(view.context)
+            .load(user.getParseFile("orgPic")?.url)
+            .circleCrop()
+            .into(orgPic)
 
         // See Recent Posts
         postsRecyclerView = view.findViewById(R.id.rvRecentPosts)
