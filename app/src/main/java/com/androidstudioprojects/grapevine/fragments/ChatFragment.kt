@@ -2,17 +2,27 @@ package com.androidstudioprojects.grapevine.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.androidstudioprojects.grapevine.Post
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.androidstudioprojects.grapevine.*
 import com.androidstudioprojects.grapevine.R
-import com.parse.ParseClassName
-import com.parse.ParseQuery
-import com.parse.ParseUser
+import com.parse.*
+
 
 class ChatFragment : Fragment() {
+
+    lateinit var chatsRecyclerView: RecyclerView
+    lateinit var adapter: ChatAdapter
+
+    var allMessages: MutableList<Message> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,12 +34,54 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
-        val user = ParseUser.getCurrentUser()
-        Log.i("Rob", user.get("MessageList").toString())
-        var MessageList: MutableList<String> = user.get("MessageList") as MutableList<String>
-        for(i in 0 until MessageList.size){
-            Log.i("Rob", MessageList[i])
-        }
+        chatsRecyclerView = view.findViewById(R.id.rvChat)
 
+        adapter = ChatAdapter(requireContext(), allMessages)
+        chatsRecyclerView.adapter = adapter
+
+        chatsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        queryMessages()
+
+
+        ParseObject.registerSubclass(Message::class.java)
+        val USER_SEND_ID_KEY = "sender"
+        val BODY_KEY = "content"
+        // Find the text field and button
+        var etMessage = view.findViewById<EditText>(R.id.etMessage)
+        var ibSend = view.findViewById<ImageButton>(R.id.ibSend)
+
+        ibSend.setOnClickListener {
+            val data: String = etMessage.text.toString()
+            val message = Message()
+            message.setSendUser(ParseUser.getCurrentUser())
+            message.setContent(data)
+            message.saveInBackground(object : SaveCallback {
+                override fun done(e: ParseException?) {
+                    if (e == null) {
+                        Toast.makeText(activity, "Successfully created message on Parse", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.e("ROB", "Failed to save message", e)
+                    }
+                }
+            })
+            etMessage.text = null
+        }
+    }
+    open fun queryMessages() {
+        val query: ParseQuery<Message> = ParseQuery.getQuery(Message::class.java)
+        query.findInBackground(object : FindCallback<Message> {
+            override fun done(messages: MutableList<Message>?, e: ParseException?) {
+                if(e != null) {
+                    Log.e(HomeFragment.TAG, "Error fetching posts: " + e.message)
+                } else {
+                    if(messages != null) {
+                        //Log.i("ROB", messages.toString())
+                        allMessages.addAll(messages)
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
     }
 }
