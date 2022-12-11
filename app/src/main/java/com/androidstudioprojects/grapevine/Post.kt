@@ -43,13 +43,8 @@ class Post : ParseObject() {
         return getDate(KEY_CREATEDAT)
     }
 
-    fun getDateTime(): Date? {
-        Log.i("ROB", "Date is ${getDate(KEY_CREATEDAT)}")
-        return getDate(KEY_DATE_TIME)
-    }
-    @SuppressLint("NewApi")
-    fun setDateTime(dateString: String){
-        put(KEY_DATE_TIME, LocalDateTime.parse(dateString))
+    fun setTest(Test: Long){
+        put("Test", Test)
     }
 
     fun getLocation():String?{
