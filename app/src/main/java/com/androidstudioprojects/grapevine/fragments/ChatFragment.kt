@@ -9,15 +9,20 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.androidstudioprojects.grapevine.Message
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.androidstudioprojects.grapevine.*
 import com.androidstudioprojects.grapevine.R
-import com.parse.ParseException
-import com.parse.ParseObject
-import com.parse.ParseUser
-import com.parse.SaveCallback
+import com.parse.*
 
 
 class ChatFragment : Fragment() {
+
+    lateinit var chatsRecyclerView: RecyclerView
+    lateinit var adapter: ChatAdapter
+
+    var allMessages: MutableList<Message> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +34,16 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
+        chatsRecyclerView = view.findViewById(R.id.rvChat)
+
+        adapter = ChatAdapter(requireContext(), allMessages)
+        chatsRecyclerView.adapter = adapter
+
+        chatsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        queryMessages()
+
+
         ParseObject.registerSubclass(Message::class.java)
         val USER_SEND_ID_KEY = "sender"
         val BODY_KEY = "content"
@@ -52,5 +67,21 @@ class ChatFragment : Fragment() {
             })
             etMessage.text = null
         }
+    }
+    open fun queryMessages() {
+        val query: ParseQuery<Message> = ParseQuery.getQuery(Message::class.java)
+        query.findInBackground(object : FindCallback<Message> {
+            override fun done(messages: MutableList<Message>?, e: ParseException?) {
+                if(e != null) {
+                    Log.e(HomeFragment.TAG, "Error fetching posts: " + e.message)
+                } else {
+                    if(messages != null) {
+                        //Log.i("ROB", messages.toString())
+                        allMessages.addAll(messages)
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
     }
 }

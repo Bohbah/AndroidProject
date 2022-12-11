@@ -13,7 +13,7 @@ import java.time.ZonedDateTime
 import java.util.*
 
 
-@ParseClassName("Message")
+@ParseClassName("message")
 class Message : ParseObject() {
     fun getSendUser(): ParseUser?{
         return getParseUser(USER_SEND_ID_KEY)
