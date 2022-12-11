@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/launch_logo.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.15353260869565216" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20190602178158965" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15353260869565216" />
         <entry key="app/src/main/res/layout/view_profile.xml" value="0.1983695652173913" />
       </map>
