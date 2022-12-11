@@ -34,6 +34,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="7dp"
         android:text="Username"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivOrg"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,12 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:maxLines="3"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvUsername"
-        tools:text="aaaaaaaaaaaaaaa" />
+        tools:text="The sisters of AST will be hosting a holiday bake sale to rise money for our national philanthropy. We will have brownies, cupcakes, rice crispy treats, and more for $1 each. Please stop by!" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

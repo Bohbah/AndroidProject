@@ -16,6 +16,8 @@
         <entry key="app/src/main/res/layout/calendar_detail.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.3551968297214373" />
         <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.1693548387096774" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_post.xml" value="0.23866088001440605" />
         <entry key="app/src/main/res/layout/view_profile.xml" value="0.1983695652173913" />
       </map>
     </option>
