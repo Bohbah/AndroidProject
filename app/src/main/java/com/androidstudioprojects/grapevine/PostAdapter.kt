@@ -4,8 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -20,6 +19,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
 
     override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
         val post = posts.get(position)
+
         holder.bind(post)
     }
 
@@ -32,17 +32,28 @@ class PostAdapter(val context: Context, val posts: List<Post>)
         val ivOrg: ImageView
         val tvUsername: TextView
         val tvDescription: TextView
+        val tvCount: TextView
+        val ibLike: ImageButton
 
         init {
             ivPFP = itemView.findViewById(R.id.ivPFP)
             ivOrg = itemView.findViewById(R.id.ivOrg)
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
+            tvCount = itemView.findViewById(R.id.tvCount)
+            ibLike = itemView.findViewById(R.id.ibLike)
         }
 
         fun bind(post: Post) {
             tvDescription.text = post.getDescription()
             tvUsername.text = post.getUser()?.username
+            tvCount.text = post.getCount().toString()
+            itemView.findViewById<ImageButton>(R.id.ibLike).setOnClickListener{
+                tvCount.text = (post.getCount()?.plus(1)).toString()
+                post.setCount(post.getCount()?.plus(1))
+                notifyDataSetChanged()
+                println(post.getCount())
+            }
 
             Glide.with(itemView.context)
                 .load(post.getUser()?.getParseFile("pfp")?.url)
