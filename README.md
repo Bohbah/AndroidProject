@@ -65,13 +65,20 @@ Allows members of Greek organizations on college campuses to easily communicate 
 
 
 **Sprint 3/4
-- [ ] Creating Event Functionality
-- [ ] Creating Post Functionality
-- [ ] Viewing events on calendar Functionality
-- [ ] Loading user profiles
+- [x] Creating Event Functionality
+- [x] Creating Post Functionality
+- [x] Viewing events on calendar Functionality
+- [x] Loading user profiles
 - [ ] Chat Functionality
 - [ ] Settings
 
+<img src="https://media1.giphy.com/media/1QPe3bja6fMmMVBVhm/giphy.gif?cid=790b76114957709da286b172d00f67b47a9ca9f4c0b14f5e&rid=giphy.gif&ct=g" width=250><br>
+
+**Sprint 4/4
+- [ ] Settings
+- [ ] Organization Page (Replacing chat)
+- [ ] App Visuals
+- [ ] General cleanup + bugfixes
 
 **NOTE
 
