@@ -35,6 +35,8 @@ class PostAdapter(val context: Context, val posts: List<Post>)
         val ivOrg: ImageView
         val tvUsername: TextView
         val tvDescription: TextView
+        val tvLocation: TextView
+        val tvTitle: TextView
         val tvCount: TextView
         val ibLike: ImageButton
 
@@ -43,15 +45,24 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             ivOrg = itemView.findViewById(R.id.ivOrg)
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
+            tvLocation = itemView.findViewById(R.id.tvLocation)
+            tvTitle = itemView.findViewById(R.id.tvTitle)
+
             tvCount = itemView.findViewById(R.id.tvCount)
             ibLike = itemView.findViewById(R.id.ibLike)
         }
 
 
         fun bind(post: Post) {
-            tvDescription.text = post.getDescription()
             tvUsername.text = post.getUser()?.username
             tvCount.text = post.getCount().toString()
+            if (post.getEvent() == true){
+                tvTitle.text = post.getName()
+                tvLocation.text = post.getLocation()
+                tvDescription.text = post.getDescription()
+            }else{
+                tvTitle.text = post.getDescription()
+            }
 
             itemView.findViewById<ImageButton>(R.id.ibLike).setOnClickListener {
                 tvCount.text = (post.getCount()?.plus(1)).toString()

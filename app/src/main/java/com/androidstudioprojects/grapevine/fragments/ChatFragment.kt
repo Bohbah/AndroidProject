@@ -59,13 +59,14 @@ class ChatFragment : Fragment() {
             message.saveInBackground(object : SaveCallback {
                 override fun done(e: ParseException?) {
                     if (e == null) {
-                        Toast.makeText(activity, "Successfully created message on Parse", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Message Sent!", Toast.LENGTH_SHORT).show()
                     } else {
                         Log.e("ROB", "Failed to save message", e)
                     }
                 }
             })
             etMessage.text = null
+            queryMessages()
         }
     }
     open fun queryMessages() {
@@ -78,6 +79,7 @@ class ChatFragment : Fragment() {
                 } else {
                     if(messages != null) {
                         //Log.i("ROB", messages.toString())
+                        allMessages.clear()
                         allMessages.addAll(messages)
                         adapter.notifyDataSetChanged()
                     }

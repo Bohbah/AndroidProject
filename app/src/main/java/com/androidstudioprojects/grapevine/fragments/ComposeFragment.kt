@@ -28,7 +28,7 @@ class ComposeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_compose, container, false)
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "CutPasteId")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Set onClickListeners and logic
@@ -61,6 +61,10 @@ class ComposeFragment : Fragment() {
             longArray[4] = minute.toLong()
             longArray[5] = tv
             submitPost(description, user, location,name, longArray, isEvent)
+            view.findViewById<EditText>(R.id.et_NameOfEvent).text = null
+            view.findViewById<EditText>(R.id.et_EventDescription).text = null
+            view.findViewById<EditText>(R.id.et_EventLocation).text = null
+            view.findViewById<Switch>(R.id.isEventSwitch).isChecked = false
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)
@@ -74,10 +78,11 @@ class ComposeFragment : Fragment() {
         post.setEvent(isEvent)
         post.saveInBackground{ exc->
             if (exc != null){
-                Log.e("ROB", "Error saving post $exc")
+                //Log.e("ROB", "Error saving post $exc")
                 exc.printStackTrace()
             }else{
-                Log.i("ROB", "Saved post suc")
+                //Log.i("ROB", "Saved post suc")
+                Toast.makeText(activity, "Successfully created Post!", Toast.LENGTH_SHORT).show()
                 //findViewById<ImageView>(R.id.imageView).setImageBitmap(null)
             }
         }
