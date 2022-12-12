@@ -55,8 +55,7 @@ open class HomeFragment : Fragment() {
                 } else {
                     if(posts != null) {
                         for (post in posts) {
-                            Log.i(TAG, "Post: " + post.getDescription() + " , username: " +
-                                    post.getUser()?.username)
+                            //Log.i(TAG, "Post: " + post.getDescription() + " , username: " + post.getUser()?.username)
                         }
 
                         allPosts.addAll(posts)

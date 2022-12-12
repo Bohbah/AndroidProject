@@ -41,6 +41,8 @@ class ChatAdapter(val context: Context, val messages: List<Message>)
 
         fun bind(mMessage: Message) {
             tvBody.text = mMessage.getContent()
+            Log.i("TEST", mMessage.getSendUser()?.username.toString())
+            tvName.text = mMessage.getSendUser()?.username
         }
     }
 }

@@ -14,10 +14,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstudioprojects.grapevine.Post
-import com.androidstudioprojects.grapevine.PostAdapter
+import com.androidstudioprojects.grapevine.*
 import com.androidstudioprojects.grapevine.R
-import com.androidstudioprojects.grapevine.SignupActivity
 import com.bumptech.glide.Glide
 import com.parse.*
 
@@ -121,6 +119,11 @@ class ProfileFragment : Fragment() {
         //switch to edit profile
         view.findViewById<Button>(R.id.btnEdit).setOnClickListener {
             val i = Intent(activity, SignupActivity::class.java)
+            startActivity(i)
+        }
+        view.findViewById<Button>(R.id.btnLogout).setOnClickListener {
+            val i = Intent(activity, LoginActivity::class.java)
+            ParseUser.logOut()
             startActivity(i)
         }
         //set profile text
