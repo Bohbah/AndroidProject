@@ -5,10 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.parse.ParseQuery
+import kotlinx.coroutines.newFixedThreadPoolContext
 
 
 class PostAdapter(val context: Context, val posts: List<Post>)
@@ -21,6 +22,7 @@ class PostAdapter(val context: Context, val posts: List<Post>)
 
     override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
         val post = posts.get(position)
+
         holder.bind(post)
     }
 
@@ -33,26 +35,31 @@ class PostAdapter(val context: Context, val posts: List<Post>)
         val ivOrg: ImageView
         val tvUsername: TextView
         val tvDescription: TextView
-        val tvName: TextView
-        val tvLocation: TextView
-
+        val tvCount: TextView
+        val ibLike: ImageButton
 
         init {
             ivPFP = itemView.findViewById(R.id.ivPFP)
             ivOrg = itemView.findViewById(R.id.ivOrg)
             tvUsername = itemView.findViewById(R.id.tvUsername)
             tvDescription = itemView.findViewById(R.id.tvDescription)
-            tvName = itemView.findViewById(R.id.tvEventLocation)
-            tvLocation = itemView.findViewById(R.id.tvEventLocation)
+            tvCount = itemView.findViewById(R.id.tvCount)
+            ibLike = itemView.findViewById(R.id.ibLike)
         }
+
 
         fun bind(post: Post) {
             tvDescription.text = post.getDescription()
             tvUsername.text = post.getUser()?.username
-            if(post.getEvent() == true){
-                tvName.text = post.getName()
-                tvLocation.text = post.getLocation()
+            tvCount.text = post.getCount().toString()
+
+            itemView.findViewById<ImageButton>(R.id.ibLike).setOnClickListener {
+                tvCount.text = (post.getCount()?.plus(1)).toString()
+                post.setCount(post.getCount()?.plus(1))
+                post.getCount()?.let { it1 -> post.put("Count", it1) }
+                post.saveInBackground()
             }
+
 
             Glide.with(itemView.context)
                 .load(post.getUser()?.getParseFile("pfp")?.url)

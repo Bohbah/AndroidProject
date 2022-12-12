@@ -15,9 +15,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        /*if (ParseUser.getCurrentUser() != null){
+        if (ParseUser.getCurrentUser() != null){
             goToMainActivity()
-        }*/
+        }
 
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
             val username = findViewById<EditText>(R.id.etUsername).text.toString()

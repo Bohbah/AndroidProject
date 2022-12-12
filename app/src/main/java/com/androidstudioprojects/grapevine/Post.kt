@@ -65,11 +65,13 @@ class Post : ParseObject() {
         put(KEY_ISEVENT, isEvent)
     }
 
-    fun getCount():String?{
-        return getString(KEY_COUNT)
+    fun getCount():Int?{
+        return getInt(KEY_COUNT)
     }
-    fun setCount(Count: String){
-        put(KEY_COUNT, Count)
+    fun setCount(Count: Int?){
+        if (Count != null) {
+            put(KEY_COUNT, Count)
+        }
     }
 
 
