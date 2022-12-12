@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.parse.ParseQuery
+import kotlinx.coroutines.newFixedThreadPoolContext
 
 
 class PostAdapter(val context: Context, val posts: List<Post>)
@@ -44,16 +46,19 @@ class PostAdapter(val context: Context, val posts: List<Post>)
             ibLike = itemView.findViewById(R.id.ibLike)
         }
 
+
         fun bind(post: Post) {
             tvDescription.text = post.getDescription()
             tvUsername.text = post.getUser()?.username
             tvCount.text = post.getCount().toString()
-            itemView.findViewById<ImageButton>(R.id.ibLike).setOnClickListener{
+
+            itemView.findViewById<ImageButton>(R.id.ibLike).setOnClickListener {
                 tvCount.text = (post.getCount()?.plus(1)).toString()
                 post.setCount(post.getCount()?.plus(1))
-                notifyDataSetChanged()
-                println(post.getCount())
+                post.getCount()?.let { it1 -> post.put("Count", it1) }
+                post.saveInBackground()
             }
+
 
             Glide.with(itemView.context)
                 .load(post.getUser()?.getParseFile("pfp")?.url)
