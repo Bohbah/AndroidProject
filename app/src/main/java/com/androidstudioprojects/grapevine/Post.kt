@@ -43,10 +43,6 @@ class Post : ParseObject() {
         return getDate(KEY_CREATEDAT)
     }
 
-    fun setTest(Test: Long){
-        put("Test", Test)
-    }
-
     fun getLocation():String?{
         return getString(KEY_LOCATION)
     }
@@ -61,9 +57,10 @@ class Post : ParseObject() {
         put(KEY_NAME, Name)
     }
 
-    fun getEvent():String?{
-        return getString(KEY_ISEVENT)
+    fun getEvent():Boolean?{
+        return getBoolean(KEY_ISEVENT)
     }
+
     fun setEvent(isEvent: Boolean){
         put(KEY_ISEVENT, isEvent)
     }

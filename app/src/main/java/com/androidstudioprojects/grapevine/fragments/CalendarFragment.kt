@@ -54,11 +54,6 @@ class CalendarFragment : Fragment() {
                     Log.e(TAG, "Error fetching posts: " + e.message)
                 } else {
                     if(posts != null) {
-                        for (post in posts) {
-                            Log.i(TAG, "Post: " + post.getDescription() + " , username: " +
-                                    post.getUser()?.username)
-                        }
-
                         allEvents.addAll(posts)
                         adapter.notifyDataSetChanged()
                     }

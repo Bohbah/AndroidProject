@@ -39,10 +39,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvEventName"
+        android:layout_width="251dp"
+        android:layout_height="29dp"
         android:layout_marginStart="12dp"
+        android:maxLines="3"
+        android:textSize="15sp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivOrg"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        tools:text="The sisters of AST will be hosting a holiday bake sale to rise money for our national philanthropy. We will have brownies, cupcakes, rice crispy treats, and more for $1 each. Please stop by!" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="251dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:maxLines="3"
+        android:textSize="15sp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivOrg"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        tools:text="The sisters of AST will be hosting a holiday bake sale to rise money for our national philanthropy. We will have brownies, cupcakes, rice crispy treats, and more for $1 each. Please stop by!" />
+
+    <TextView
+        android:id="@+id/tvEventLocation"
+        android:layout_width="251dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="56dp"
         android:maxLines="3"
         android:textSize="15sp"
         app:layout_constrainedWidth="true"
