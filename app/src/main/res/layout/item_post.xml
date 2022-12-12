@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ivPFP"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/ivOrg"
         android:layout_width="37dp"
         android:layout_height="42dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/ivPFP"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:maxLines="3"
+        android:maxLines="5"
         android:textSize="15sp"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,5 +51,28 @@
         app:layout_constraintStart_toEndOf="@+id/ivOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvUsername"
         tools:text="The sisters of AST will be hosting a holiday bake sale to rise money for our national philanthropy. We will have brownies, cupcakes, rice crispy treats, and more for $1 each. Please stop by!" />
+
+    <ImageButton
+        android:id="@+id/ibLike"
+        android:layout_width="58dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_outline_thumb_up_24" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="21dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="2dp"
+        android:text="TextView"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibLike"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+        tools:text="0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
