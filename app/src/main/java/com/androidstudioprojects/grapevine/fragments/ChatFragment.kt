@@ -70,6 +70,7 @@ class ChatFragment : Fragment() {
     }
     open fun queryMessages() {
         val query: ParseQuery<Message> = ParseQuery.getQuery(Message::class.java)
+        query.include(Message.USER_SEND_ID_KEY)
         query.findInBackground(object : FindCallback<Message> {
             override fun done(messages: MutableList<Message>?, e: ParseException?) {
                 if(e != null) {

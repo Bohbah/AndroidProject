@@ -15,7 +15,7 @@ import java.util.*
 
 @ParseClassName("message")
 class Message : ParseObject() {
-    fun getSendUser(): ParseUser?{
+    fun getSendUser():ParseUser?{
         return getParseUser(USER_SEND_ID_KEY)
     }
     fun setSendUser(user: ParseUser){
