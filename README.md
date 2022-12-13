@@ -86,7 +86,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 <img src="https://github.com/Bohbah/AndroidProject/blob/master/demodemoo.gif" width=250><br>
 
 **NOTE
-The chat feature was reimagined to be a campus-wide chat, instead of individualized messaging, to promote Greek Unity and foster a asense of community - noot individuaity. 
+The chat feature was reimagined to be a campus-wide chat, instead of individualized messaging, to promote Greek Unity and foster a sense of community - not individuaity. 
 
 ### 2. Screen Archetypes
 
