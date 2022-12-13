@@ -82,6 +82,8 @@ Allows members of Greek organizations on college campuses to easily communicate 
 - [X] User Experience (UX) Improvements & Branding
 - [X] General cleanup + bugfixes
 
+<img src="https://github.com/Bohbah/AndroidProject/blob/master/demodemoo.gif" width=250><br>
+
 **NOTE
 
 
