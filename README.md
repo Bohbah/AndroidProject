@@ -13,7 +13,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 ### App Evaluation
 - **Category:** Social Networking
 - **Mobile:** This app will be developed for mobile but would perhaps be just as viable on a computer, such as GroupMe or WhatsApp. Functionality wouldn't be limited to mobile devices, however mobile version could potentially have more features.
-- **Story:** Allows members of the Greek Life community on a college campus to connect with other chapters on their campus and on other campuses.
+- **Story:** Allows members of the Greek Life community on a college campus to connect with other chapters on their campus.
 - **Market:** This app would target undergraduate college students who are part of a Greek organizations. 
 - **Habit:** This app could be used as often or unoften as the user wanted depending on how deep their social life is, and what exactly they're looking for.
 - **Scope:** First we would start with one region of the United States with known Greek Life presence, but would expand to include chapters nationwide. Large potential for use on college campuses in the South.
@@ -27,7 +27,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 * Users can edit their profile page
 * User can view another user's profile page containing their previous posts and events
 * Users can create calendar events and view calendar of community events
-* Users can chat with other app users individually
+* Users can chat with other app users
 * Users can view a feed of posts and events from other users
 * Users can post to shared feed
 * Users can switch between screens with Bottom Navigation Bar
@@ -56,10 +56,10 @@ Allows members of Greek organizations on college campuses to easily communicate 
 - [x] Create Server
 - [x] Log In Functionality
 - [ ] Creating Event Functionality
-- [ ] Viewing events on calendar Functionality
-- [x] Viewing events on feed functionality
-- [ ] Loading user profiles
-- [x] Loading current logged in profile
+- [ ] Viewing Events on Calendar Functionality
+- [x] Viewing Events on Feed Functionality
+- [ ] Loading User Profiles
+- [x] Loading Current Logged in Profile
 
 <img src="https://media1.giphy.com/media/1QPe3bja6fMmMVBVhm/giphy.gif?cid=790b76114957709da286b172d00f67b47a9ca9f4c0b14f5e&rid=giphy.gif&ct=g" width=250><br>
 
@@ -67,8 +67,8 @@ Allows members of Greek organizations on college campuses to easily communicate 
 **Sprint 3/4
 - [x] Creating Event Functionality
 - [x] Creating Post Functionality
-- [x] Viewing events on calendar Functionality
-- [x] Loading user profiles
+- [x] Viewing events on Calendar Functionality
+- [x] Loading User Profiles
 - [ ] Chat Functionality
 - [ ] Settings
 
@@ -80,12 +80,13 @@ Allows members of Greek organizations on college campuses to easily communicate 
 - [X] Like an Event/Post Functionality
 - [X] Search and View Another Users Profile
 - [X] User Experience (UX) Improvements & Branding
-- [X] General cleanup + bugfixes
+- [X] General Cleanup + Bugfixes
+- [ ] Settings
 
 <img src="https://github.com/Bohbah/AndroidProject/blob/master/demodemoo.gif" width=250><br>
 
 **NOTE
-
+The chat feature was reimagined to be a campus-wide chat, instead of individualized messaging, to promote Greek Unity and foster a asense of community - noot individuaity. 
 
 ### 2. Screen Archetypes
 
@@ -112,7 +113,6 @@ Allows members of Greek organizations on college campuses to easily communicate 
 * Create New Account -> Feed screen
 * Successful Log-in -> Feed screen
 * Profile -> Edit profile if button clicked
-* Chat Screen -> Detailed Chat Screen if conversation clicked
 
 
 ## Wireframes
@@ -148,7 +148,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
    | description   | String           | user's organization name |
    | calendar      | N/A              | pointer for their google calendar authentication |
 
-#### Event
+#### Event/Post
 
    | Property      | Type             | Description |
    | ------------- | --------         | ------------|
@@ -157,15 +157,8 @@ Allows members of Greek organizations on college campuses to easily communicate 
    | Date Time     | Date Time        | Time and Date for the event |
    | Description   | String           | Event description for what is happening |
    | Name          | String           | Name of the event |
+   | isEvent       | Booleana         | To signify is event or post |
 
-#### Post
-
-   | Property      | Type             | Description |
-   | ------------- | --------         | ------------|
-   | ID            | Int              | unique id for post (default value and auto increment) |
-   | Description   | String           | Text that the post contians to display on the feed |
-   | Image         | File             | Optional image file attached to the post |
-   | Date Time     | Date Time        | A timestamp for when the post was made |
    
 #### Messages
 
@@ -211,9 +204,6 @@ Allows members of Greek organizations on college campuses to easily communicate 
       - (Read/GET) Use API to view calendar of events
    - View All Chats
       - (Read/GET) Query all messages of current app user
-   - View 1-on-1 Chat
-      - (Read/GET) Query all conversation messages of user and recipient
-      - (Create/POST) Update conversation with new messages
    
 
 #### [OPTIONAL:] Existing API Endpoints
