@@ -76,7 +76,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 
 **Sprint 4/4
 - [X] Chat Functionality
-- [X] Login Persistence & Logout Functionality
+- [X] Logout Functionality
 - [X] Like an Event/Post Functionality
 - [X] Search and View Another Users Profile
 - [X] User Experience (UX) Improvements & Branding
