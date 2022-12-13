@@ -75,10 +75,12 @@ Allows members of Greek organizations on college campuses to easily communicate 
 <img src="https://media1.giphy.com/media/1QPe3bja6fMmMVBVhm/giphy.gif?cid=790b76114957709da286b172d00f67b47a9ca9f4c0b14f5e&rid=giphy.gif&ct=g" width=250><br>
 
 **Sprint 4/4
-- [ ] Settings
-- [ ] Organization Page (Replacing chat)
-- [ ] App Visuals
-- [ ] General cleanup + bugfixes
+- [X] Chat Functionality
+- [X] Login Persistence & Logout Functionality
+- [X] Like an Event/Post Functionality
+- [X] Search and View Another Users Profile
+- [X] User Experience (UX) Improvements & Branding
+- [X] General cleanup + bugfixes
 
 **NOTE
 
@@ -87,11 +89,10 @@ Allows members of Greek organizations on college campuses to easily communicate 
 
 * Login - allows user signs into their account
 * Sign Up - allows user signs up for an account
-* Profile Screen - shows relevant user information and profile pictures
+* Profile Screen - shows user information, logout button, and search other users feature
 * Edit Profile Screen - allows user to upload a photo and fill in relevant personal information
-* Chat Screen - shows the list of recent inidivudal conversations a user has had
-* Detailed Chat Sccreen - shows the individual chat messages between two users
-* Add Event Screen - allows the user to create a new event to include on the community calendar
+* Chat Screen - shows the chat between all Grapevine users at a school
+* Add Event/Post Screen - allows the user to create a new event to include on the community calendar
 * Calendar Screen - shows all of the submitted events by users in a calendar view
 * Feed Screen - shows all newly created user posts from the same school
 
@@ -101,7 +102,7 @@ Allows members of Greek organizations on college campuses to easily communicate 
 
 * Home (feed)
 * Calendar
-* Add Event
+* Add Event/Post
 * Chat
 * Profile
 
